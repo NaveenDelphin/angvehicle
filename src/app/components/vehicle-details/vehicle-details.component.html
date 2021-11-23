@@ -1,0 +1,219 @@
+<!--<div class="page-area rounded position py-3">
+   <label class='size'>
+        <h1>Vehicle Details </h1>
+    </label>
+    <br>
+    <div class="buttonPos">
+        <button class="button rounded buttonSize shadow" (click)='open()'><h5>Add Vehicle</h5></button>
+    </div>
+
+    <div class="shadow">
+        <div class="page-area justify-content-center py-3">
+      
+            <form [formGroup]="myReactiveForm">
+            
+                <h2 class="padder">Add Vehicle</h2>
+    
+                <div class="mb-3 area padder">
+                    <label class="upDownPadder" for="year">Select Year</label>
+                    <select class="form-control" id="year" formControlName="year">
+                        <option value="2015-2021">2015-2021</option>
+                        <option value="2010-2015">2010-2015</option>
+                        <option value="2005-2010">2005-2010</option>
+                        <option value="2000-2005">2000-2005</option>
+                        <option value="older">Older</option>
+                        
+                    </select>
+                    <small *ngIf="year.errors?.required && year.touched" class="form-text custom-invalid-feedback redText">*Year required</small>
+                    <small *ngIf="!submitMessage && !year.touched" class="form-text custom-invalid-feedback redText">*Year is required</small>
+      
+                    <label class="upDownPadder" for="make">Select Make</label>
+                    <select class="form-control" id="make" formControlName="make">
+                        <option value="BMW">BMW</option>
+                        <option value="honda">Honda</option>
+                        <option value="hundai">Hundai</option>
+                        <option value="bugati">Bugati</option>
+                        <option value="others">Others</option>
+                        
+                    </select>
+                    <small *ngIf="make.errors?.required && make.touched" class="form-text custom-invalid-feedback redText">*Make required</small>
+                    <small *ngIf="!submitMessage && !make.touched" class="form-text custom-invalid-feedback redText">*Make is required</small>
+      
+                    <label class="upDownPadder" for="model">Select Model</label>
+                    <select class="form-control" id="model" formControlName="model">
+                        
+                        <option  value="A">Model A</option>
+                        <option  value="B">Model B</option>
+                        <option  value="C">Model C</option>
+                        
+                    </select>
+                    <small *ngIf="model.errors?.required && model.touched" class="form-text custom-invalid-feedback redText">*Model required</small>
+                    <small *ngIf="!submitMessage && !model.touched" class="form-text custom-invalid-feedback redText">*Model is required</small>
+      
+                    
+                    <label class="upDownPadder" for="engineNo">Engine number</label>
+                    <input type="text" class="form-control" id="engineNo" formControlName="engineNo">
+                    <small *ngIf="engineNo.errors?.required && engineNo.touched" class="form-text custom-invalid-feedback redText">*Engine number required</small>
+                    <small *ngIf="!submitMessage && !engineNo.touched" class="form-text custom-invalid-feedback redText">*Engine number required</small>
+                    
+                   
+                    <label class="upDownPadder" for="vehicleFinance">How is Vehicle financed ?</label>
+                      <select class="form-control" id="vehicleFinance" formControlName="vehicleFinance">
+                        
+                        <option  value="Loan">Loan</option>
+                        <option  value="Lease">Lease</option>
+                        <option  value="Own">Own</option>
+      
+                    </select>
+                    <small *ngIf="vehicleFinance.errors?.required && vehicleFinance.touched" class="form-text custom-invalid-feedback redText">*Can't be left empty</small>
+                    <small *ngIf="!submitMessage && !vehicleFinance.touched" class="form-text custom-invalid-feedback redText">*Can't be left empty</small>
+                        
+      
+                    <label class="upDownPadder" for="vehiclePrimaryUse">What is this Vehicle's primary use ?</label>
+                    <select class="form-control" id="vehiclePrimaryUse" formControlName="vehiclePrimaryUse">
+                        
+                        <option  value="To work, schoool or pleasure">To work, schoool or pleasure</option>
+                        <option  value="Business">Business</option>
+                        <option  value="Farm">Farm</option>
+                        <option  value="Fedral Govt. employee">Fedral Govt. employee</option>
+                        
+                    </select>
+                    <small *ngIf="vehiclePrimaryUse.errors?.required && vehiclePrimaryUse.touched" class="form-text custom-invalid-feedback redText">*Can't be left empty</small>
+                    <small *ngIf="!submitMessage && !vehiclePrimaryUse.touched" class="form-text custom-invalid-feedback redText">*Can't be left empty</small>
+      
+      
+                    <div class="buttonProp">
+                      <a class="padder upDownPadder"></a>
+                      <button class="button rounded btn-primary shadow" (click)="onCancel()"><h5>Cancel</h5></button>
+                
+                      <a class="padder"></a>
+                      <button class="button rounded btn-primary shadow" (click)="addVehicle()"><h5>Add</h5></button>
+                    </div>
+
+
+                    <div class="buttonPos">
+                        <button class="button btn-primary rounded buttonSize shadow" (click)='onSubmit()'><h5>Save & Proceed</h5></button>
+                    </div>
+                    
+      
+                 </div>
+      
+                  
+            </form>
+        </div>
+      </div>
+      
+    
+    
+</div>-->
+
+
+
+
+<div class="center">
+    <form [formGroup]="myReactiveForm" (ngSubmit)='onSubmit()'>
+        <mat-card>
+            <div class='center mb-5'>
+                <h2>Vehicle Details </h2>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 table-responsive" formArrayName="vehicles">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="padding-right: 4em;float:center">Year of Purchase </th>
+                                <th style="padding-right: 4em;float:center">Make of vehicle</th>
+                                <th style="padding-right: 4em;float:center">Model of vehicle </th>
+                                <th style="padding-right: 4em;float:center">VIN number</th>
+                                <th style="padding-right: 4em;float:center">How is the vehicle Financed ? </th>
+
+                                <th style="padding-right: 4em;float:center">Remove</th>
+                                <!--<th style="white-space: nowrap;padding-right: 4em;float:center">Remove</th>-->
+
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr *ngFor="let vehicle of vehiclesArr.controls; let i=index" [formGroupName]="i">
+                                <td>
+                                    <mat-select class="form-control" id="year{{i}}" formControlName="year" (selectionChange)="onSelectYear($event.value)">
+                                        <!--'is-invalid':vehicle.controls.year.invalid && vehicle.controls.year.touched-->
+                                        <mat-option *ngFor="let year of years" [value]="year.name">{{year.name}}</mat-option>
+                                        <!--<mat-option value="2010-2015">2010-2015</mat-option>
+                                        <mat-option value="2005-2010">2005-2010</mat-option>
+                                        <mat-option value="2000-2005">2000-2005</mat-option>
+                                        <mat-option value="older">Older</mat-option>-->
+
+                                    </mat-select>
+                                    <small *ngIf="vehiclesArr.controls[i].get('year')?.errors?.required && vehiclesArr.controls[i].get('year')?.touched" class="form-text custom-invalid-feedback redText">*Year required</small>
+
+                                </td>
+                                <td><mat-select class="form-control" id="make{{i}}" formControlName="make" (selectionChange)="onSelectMake($event.value)">
+                                        <mat-option disabled value="">None</mat-option>
+                                        <mat-option *ngFor="let make of makes?.year" [value]="make.makename[i]">{{make.makename}}</mat-option>
+                                        <!--<mat-option value="honda">Honda</mat-option>
+                                        <mat-option value="hundai">Hundai</mat-option>
+                                        <mat-option value="bugati">Bugati</mat-option>
+                                        <mat-option value="others">Others</mat-option>-->
+                                    </mat-select>
+                                    <small *ngIf="vehiclesArr.controls[i].get('make')?.errors?.required && vehiclesArr.controls[i].get('make')?.touched" class="form-text custom-invalid-feedback redText">*Make required</small>
+                                </td>
+
+                                <td>
+                                    <mat-select class="form-control" id="model{{i}}" formControlName="model">
+                                        <mat-option disabled value="">None</mat-option>
+                                        <mat-option *ngFor="let model of models" [value]="model.Model_Name[i]">{{model.Model_Name}}</mat-option>
+                                        <!--<mat-option value="B">Model B</mat-option>
+                                        <mat-option value="C">Model C</mat-option>-->
+
+                                    </mat-select>
+                                    <small *ngIf="vehiclesArr.controls[i].get('model')?.errors?.required && vehiclesArr.controls[i].get('model')?.touched" class="form-text custom-invalid-feedback redText">*Model required</small>
+                                </td>
+
+                                <td>
+                                    <input type="text" class="form-control" id="vinNo{{i}}" formControlName="vinNo">
+                                    <small *ngIf="vehiclesArr.controls[i].get('vinNo')?.errors?.required && vehiclesArr.controls[i].get('vinNo')?.touched" class="form-text custom-invalid-feedback redText">*VIN number required</small>
+                                    <small *ngIf="vehiclesArr.controls[i].get('vinNo')?.errors?.pattern && vehiclesArr.controls[i].get('vinNo')?.touched" class="form-text custom-invalid-feedback redText">*VIN number is not valid</small>
+                                </td>
+                                
+
+
+                                <td>
+                                    <mat-select class="form-control" id="vehicleFinance{{i}}"
+                                        formControlName="vehicleFinance">
+
+                                        <mat-option value="Loan">Loan</mat-option>
+                                        <mat-option value="Lease">Lease</mat-option>
+                                        <mat-option value="Own">Own</mat-option>
+
+                                    </mat-select>
+                                    <small *ngIf="vehiclesArr.controls[i].get('vehicleFinance')?.errors?.required && vehiclesArr.controls[i].get('vehicleFinance')?.touched" class="form-text custom-invalid-feedback redText">*Field required</small>
+                                </td>
+
+                                <td> <button [disabled]="(vehiclesArr.controls.length>1)?false:true"
+                                        (click)="deleteVehicle(i)" mat-raised-button color="warn"><i class="fa fa-minus-circle" aria-hidden="true">
+                                            <h6>Delete</h6>
+                                        </i></button></td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+                    <small *ngIf="vehiclesArr.invalid && isAddVehicleBtnTouched" class="redText">*All the fields are required</small>
+                    <small *ngIf="vehiclesArr.controls.length>4" class="redText">*Can't add more than 4 vehicles</small>
+                    
+                    <br>
+                    <button [disabled]="(vehiclesArr.controls.length<4)?false:true || vehiclesArr.invalid"
+                            type="button " (click)="addVehicle()" mat-raised-button color="primary"><i>+ Add Vehicle</i></button>
+
+                    <div class="center pt-5">
+                        <button type="submit" class="button btn-primary rounded buttonSize shadow">
+                            <h5>Save & Proceed</h5>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </mat-card>
+    </form>
+</div>

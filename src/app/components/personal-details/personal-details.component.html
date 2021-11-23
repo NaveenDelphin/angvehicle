@@ -1,0 +1,297 @@
+ <!-- <html>
+    <div class="center">
+        <h3>Personal Details </h3>
+      </div>
+      <head>
+        <style> 
+         body{
+          background-color: rgba(255, 255, 255, 0.486);
+          background-blend-mode: lighten;
+         }
+          input[type=any] {
+            width: 50%;
+            padding: 20px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #555;
+            outline:black;
+          }
+          ul {
+        list-style-type: none;
+        margin: 10px;
+        padding: 20px;
+      }
+      
+      li {
+        display: inline-block;
+      }
+          .center {
+        display: flex;
+        justify-content: center;
+        border-top-width: 10px;
+        padding-top: 10px;
+        margin-top: 20px;
+      } 
+      h3  {
+        font-family: 'Segoe UI';
+        justify-content:left ;
+      }
+      </style>
+      </head>
+      <body>
+      <div class="center">
+
+      <form [formGroup]='myReactiveForm'>
+       
+        <div class="form-row">
+          <div class="col-md-4 mb-3">
+            <label for="firstName">First name*</label>
+            <input type="text" class="form-control" id="firstName" formControlName="firstName" placeholder="First name"  [(ngModel)] = "customer.firstName"  required>
+            <small *ngIf="firstName.errors?.required && firstName.touched" class="form-text custom-invalid-feedback redText">*First Name required</small>
+            <small *ngIf="!submitMessage && !firstName.touched" class="form-text custom-invalid-feedback redText">*First name required</small>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="middleName">Middle name</label>
+            <input type="text" class="form-control" id="middleName" formControlName="middleName" placeholder="Middle name">
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="lastName">Last name*</label>
+            <input type="text" class="form-control" id="lastName" formControlName="lastName" placeholder="Last name" [(ngModel)] = "customer.lastName" required>
+            <small *ngIf="lastName.errors?.required && lastName.touched" class="form-text custom-invalid-feedback redText">*Last Name required</small>
+            <small *ngIf="!submitMessage && !lastName.touched" class="form-text custom-invalid-feedback redText">*Last Name required</small>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-md-4 mb-3">
+            <label for="emailId">Email ID*</label>
+            <input type="email" class="form-control" id="emailId" formControlName="emailId" placeholder="Email ID" [(ngModel)] = "customer.email" required>
+            <small *ngIf="emailId.errors?.required && emailId.touched" class="form-text custom-invalid-feedback redText">*Email Id required</small>
+            <small *ngIf="emailId.errors?.email && emailId.touched" class="form-text custom-invalid-feedback redText">*Email Id is invalid</small>
+            <small *ngIf="!submitMessage && !emailId.touched" class="form-text custom-invalid-feedback redText">*Email Id is required</small>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="phoneNo">Phone Number*</label>
+            <input type="number" class="form-control" id="phoneNo" formControlName="phoneNo" placeholder="Phone Number" [(ngModel)] = "customer.phone" required>
+            <small *ngIf="phoneNo.errors?.pattern && phoneNo.touched" class="form-text custom-invalid-feedback redText">*Phone number must be 10 digit number</small>
+            <small *ngIf="phoneNo.errors?.required && phoneNo.touched" class="form-text custom-invalid-feedback redText">*Phone number required</small>
+            <small *ngIf="!submitMessage && !phoneNo.touched" class="form-text custom-invalid-feedback redText">*Phone number required</small>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="dob">Date of Birth*</label>
+              <input type="date" class="form-control" id="dob" formControlName="dob" placeholder="mm/dd/yyyy" [(ngModel)] = "customer.dob" required>
+              <small *ngIf="dob.errors?.required && dob.touched" class="form-text custom-invalid-feedback redText">*Date of Birth required</small>
+              <small *ngIf="!submitMessage && !dob.touched" class="form-text custom-invalid-feedback redText">*Date of Birth required</small>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-md-12 mb-3">
+            <label for="streetAdd">Street Address*</label>
+            <input type="text" class="form-control" id="streetAdd" formControlName="streetAdd" placeholder="Street Address" [(ngModel)] = "customer.address" required>
+            <small *ngIf="streetAdd.errors?.required && streetAdd.touched" class="form-text custom-invalid-feedback redText">*Street Address required</small>
+            <small *ngIf="!submitMessage && !streetAdd.touched" class="form-text custom-invalid-feedback redText">*Street Address required</small>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-md-6 mb-3">
+            <label for="city">City*</label>
+            <input type="text" class="form-control" id="city" formControlName="city" placeholder="City" [(ngModel)] = "city1" [(ngModel)] = "customer.city" required>
+            <small *ngIf="city.errors?.required && city.touched" class="form-text custom-invalid-feedback redText">*City required</small>
+            <small *ngIf="!submitMessage && !city.touched" class="form-text custom-invalid-feedback redText">*City required</small>
+          </div> 
+          <div class="col-md-3 mb-3" >
+            <label for="state">State*</label>
+            <input type="text"  class="form-control" id="state" formControlName="state" placeholder="State" [(ngModel)] = "state1" [(ngModel)] = "customer.state" required>
+            <small *ngIf="state.errors?.required && state.touched" class="form-text custom-invalid-feedback redText">*State required</small>
+            <small *ngIf="!submitMessage && !state.touched" class="form-text custom-invalid-feedback redText">*State required</small>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="zipCode">Zipcode*</label>
+            <input type="text" class="form-control" id="zipCode" formControlName="zipCode" placeholder="Zipcode" [(ngModel)] = "zipcode" [(ngModel)] = "customer.zipcode" required>
+            <small *ngIf="zipCode.errors?.pattern && zipCode.touched" class="form-text custom-invalid-feedback redText">*Zip code must be 5 digit number</small>
+            <small *ngIf="zipCode.errors?.required && zipCode.touched" class="form-text custom-invalid-feedback redText">*Zip code required</small>
+            <small *ngIf="!submitMessage && !zipCode.touched" class="form-text custom-invalid-feedback redText">*Zip code required</small>
+            
+          </div>
+        </div>
+          <div class='center'></div><button class="btn btn-primary" type="submit" (click)="onSubmit()" >Save & Proceed</button>
+  
+        </form>
+        </div>
+      </body>
+</html>
+  
+  <router-outlet></router-outlet>
+  
+
+
+
+
+
+
+
+
+   -->
+<html>
+ <head>
+        <style> 
+         body{
+          background-color: rgba(255, 255, 255, 0.486);
+          background-blend-mode: lighten;
+         }
+          input[type=any] {
+            width: 50%;
+            padding: 20px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #555;
+            outline:black;
+          }
+          ul {
+        list-style-type: none;
+        margin: 10px;
+        padding: 20px;
+      }
+      
+      li {
+        display: inline-block;
+      }
+          .center {
+        display: flex;
+        justify-content: center;
+        border-top-width: 10px;
+        padding-top: 10px;
+        margin-top: 20px;
+        padding-bottom: 20px;
+      } 
+      h3  {
+        font-family: 'Segoe UI';
+        justify-content:left ;
+      }
+      </style>
+      </head>
+      <body>
+      <div class="center pt-5">
+        
+
+
+      <form [formGroup]='myReactiveForm' (ngSubmit)='onSubmit()'>
+        
+        <mat-card>
+          <div class="center">
+            <h2>Personal Details </h2>
+
+          </div>
+          <div class="form-row">
+            <div class="col-md-4 mb-3">
+              <mat-form-field>
+                <mat-label for="firstName">First name</mat-label>
+                <input matInput type="text" id="firstName" formControlName="firstName" [(ngModel)] = "customer.firstName" required>
+                <mat-hint *ngIf="firstName.errors?.required && firstName.touched" class="form-text custom-invalid-feedback redText">*First Name required</mat-hint>
+                <mat-hint *ngIf="!submitMessage && !firstName.touched" class="form-text custom-invalid-feedback redText">*First name required</mat-hint>
+              </mat-form-field>              
+            </div>
+
+            <div class="col-md-4 mb-3">
+              <mat-form-field>
+                <mat-label for="middleName">Middle name</mat-label>
+                <input matInput type="text" id="middleName" formControlName="middleName">
+              </mat-form-field>              
+            </div>
+
+            <div class="col-md-4 mb-3">
+              <mat-form-field>
+                <mat-label for="lastName">Last name</mat-label>
+                <input matInput type="text" id="lastName" formControlName="lastName" [(ngModel)] = "customer.lastName" required>
+                <mat-hint *ngIf="lastName.errors?.required && lastName.touched" class="form-text custom-invalid-feedback redText">*Last Name required</mat-hint>
+                <mat-hint *ngIf="!submitMessage && !lastName.touched" class="form-text custom-invalid-feedback redText">*Last Name required</mat-hint>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col-md-4 mb-3">
+              <mat-form-field>
+                <mat-label for="emailId">Email ID</mat-label>
+                <input matInput type="email" id="emailId" formControlName="emailId" [(ngModel)] = "customer.email" required>
+                <mat-hint *ngIf="emailId.errors?.required && emailId.touched" class="form-text custom-invalid-feedback redText">*Email Id required</mat-hint>
+                <mat-hint *ngIf="emailId.errors?.email && emailId.touched" class="form-text custom-invalid-feedback redText">*Email Id is invalid</mat-hint>
+                <mat-hint *ngIf="!submitMessage && !emailId.touched" class="form-text custom-invalid-feedback redText">*Email Id is required</mat-hint>
+              </mat-form-field>              
+            </div>
+
+            <div class="col-md-4 mb-3">
+              <mat-form-field>
+                <mat-label for="phoneNo">Phone Number</mat-label>
+                <input  matInput type="number" id="phoneNo" formControlName="phoneNo" [(ngModel)] = "customer.phone" required>
+                <mat-hint *ngIf="phoneNo.errors?.pattern && phoneNo.touched" class="form-text custom-invalid-feedback redText">*Phone number must be 10 digit number</mat-hint>
+                <mat-hint *ngIf="phoneNo.errors?.required && phoneNo.touched" class="form-text custom-invalid-feedback redText">*Phone number required</mat-hint>
+                <mat-hint *ngIf="!submitMessage && !phoneNo.touched" class="form-text custom-invalid-feedback redText">*Phone number required</mat-hint>
+              </mat-form-field>            
+            </div>
+
+            <div class="col-md-4 mb-3">
+              <mat-form-field [style.width.px]=180>
+                <mat-label for="dob">Date of Birth</mat-label>
+                <input matInput [matDatepicker]="picker" id="dob" formControlName="dob" [(ngModel)] = "customer.dob" required>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-hint *ngIf="dob.errors?.required && dob.touched" class="form-text custom-invalid-feedback redText">*Date of Birth required</mat-hint>
+                <mat-hint *ngIf="!submitMessage && !dob.touched" class="form-text custom-invalid-feedback redText">*Date of Birth required</mat-hint>
+              </mat-form-field>            
+            </div>
+          </div>
+
+
+          <div class="form-row">
+            <div>
+              <mat-form-field [style.width.px]=565>
+                <mat-label for="streetAdd">Street Address</mat-label>
+                <input matInput type="text" id="streetAdd" formControlName="streetAdd" [(ngModel)] = "customer.address" required>
+                <mat-hint *ngIf="streetAdd.errors?.required && streetAdd.touched" class="form-text custom-invalid-feedback redText">*Street Address required</mat-hint>
+                <mat-hint *ngIf="!submitMessage && !streetAdd.touched" class="form-text custom-invalid-feedback redText">*Street Address required</mat-hint>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col-md-4 mb-3">
+              <mat-form-field>
+                <mat-label for="city">City</mat-label>
+                <input matInput type="text" id="city" formControlName="city" [(ngModel)] = "city1" [(ngModel)] = "customer.city" required>
+                <!--<mat-hint *ngIf="city.errors?.required && city.touched" class="form-text custom-invalid-feedback redText">*City required</mat-hint>
+                <mat-hint *ngIf="!submitMessage && !city.touched" class="form-text custom-invalid-feedback redText">*City required</mat-hint>-->
+              </mat-form-field>             
+            </div> 
+
+            <div class="col-md-4 mb-3">
+              <mat-form-field>
+                <mat-label for="state">State</mat-label>
+                <input matInput type="text" id="state" formControlName="state" [(ngModel)] = "state1" [(ngModel)] = "customer.state" required>
+                <!--<mat-hint *ngIf="state.errors?.required && state.touched" class="form-text custom-invalid-feedback redText">*State required</mat-hint>
+                <mat-hint *ngIf="!submitMessage && !state.touched" class="form-text custom-invalid-feedback redText">*State required</mat-hint>-->
+              </mat-form-field>             
+            </div>
+
+            <div class="col-md-4 mb-3">
+              <mat-form-field>
+                <mat-label for="zipCode">Zipcode</mat-label>
+                <input matInput type="text" id="zipCode" formControlName="zipCode" [disabled]= "true" [(ngModel)] = "zipcode" [(ngModel)] = "customer.zipcode"  required>
+                <!--<mat-hint *ngIf="zipCode.errors?.pattern && zipCode.touched" class="form-text custom-invalid-feedback redText">*Zip code must be 5 digit number</mat-hint>
+                <mat-hint *ngIf="zipCode.errors?.required && zipCode.touched" class="form-text custom-invalid-feedback redText">*Zip code required</mat-hint>
+                <mat-hint *ngIf="!submitMessage && !zipCode.touched" class="form-text custom-invalid-feedback redText">*Zip code required</mat-hint>-->
+              </mat-form-field>              
+            </div>
+
+          </div>
+            <div class='center'>
+              <button mat-raised-button class="registerbtn" type="submit" (click)="onSubmit()" color='primary'><h6>Save & Proceed</h6></button>
+            </div>
+          </mat-card>
+  
+        </form>
+        </div>
+      </body>
+</html>
+  
+  <router-outlet></router-outlet>
+  

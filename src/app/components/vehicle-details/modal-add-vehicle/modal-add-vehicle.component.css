@@ -1,0 +1,49 @@
+.container{
+    padding-top: 10px;
+      /*padding-right: 500px;*/
+    padding-left: 10px;
+    
+}
+
+.padder{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.upDownPadder{
+    padding-top: 20px;
+    padding-bottom: 1px;
+}
+
+.button{
+    
+    width: 65px;
+    height: 40px;
+    
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    border-top-width: 5px;
+    padding-top: 10px;
+    margin-top: 10px;
+  } 
+
+  .area{
+      width: 500px;
+      height: 600px;
+  }
+
+  .buttonProp{
+      display:flex;
+      padding-top: 30px;
+      justify-content: center;
+      margin-top: 20px;
+      
+
+  }
+
+  .redText{
+      color: red;
+  }

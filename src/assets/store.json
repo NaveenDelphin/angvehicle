@@ -1,0 +1,135 @@
+{
+    "years": [
+        {
+            "id": 1,
+            "name": "2018"
+        },
+        {
+            "id": 2,
+            "name": "2019"
+        }
+    ],
+    "makes": [
+        {
+            "id": 1,
+            "name": "BMW",
+            "year_id": 1
+        },
+        {
+            "id": 2,
+            "name": "Honda",
+            "year_id": 1
+        },
+        {
+            "id": 3,
+            "name": "Nissan",
+            "year_id": 2
+        },
+        {
+            "id": 4,
+            "name": "BMW",
+            "year_id": 2
+        }
+    ],
+    "models": [
+        {
+            "id": 1,
+            "name": "model A",
+            "year_id": 1,
+            "make_id": 1
+        },
+        {
+            "id": 2,
+            "name": "model B",
+            "year_id": 1,
+            "make_id": 1
+        },
+        {
+            "id": 3,
+            "name": "model Z",
+            "year_id": 2,
+            "make_id": 1
+        },
+        {
+            "id": 4,
+            "name": "model X",
+            "year_id": 2,
+            "make_id": 1
+        },
+        {
+            "id": 5,
+            "name": "model A13",
+            "year_id": 1,
+            "make_id": 2
+        },
+        {
+            "id": 6,
+            "name": "model B13",
+            "year_id": 1,
+            "make_id": 2
+        },
+        {
+            "id": 7,
+            "name": "model Z1",
+            "year_id": 2,
+            "make_id": 2
+        },
+        {
+            "id": 8,
+            "name": "model X1",
+            "year_id": 2,
+            "make_id": 2
+        },
+        {
+            "id": 9,
+            "name": "model A",
+            "year_id": 1,
+            "make_id": 3
+        },
+        {
+            "id": 10,
+            "name": "model B",
+            "year_id": 1,
+            "make_id": 3
+        },
+        {
+            "id": 11,
+            "name": "model Z3",
+            "year_id": 2,
+            "make_id": 3
+        },
+        {
+            "id": 12,
+            "name": "model X3",
+            "year_id": 2,
+            "make_id": 3
+        },
+        {
+            "id": 13,
+            "name": "model A4",
+            "year_id": 1,
+            "make_id": 4
+        },
+        {
+            "id": 14,
+            "name": "model B4",
+            "year_id": 1,
+            "make_id": 4
+        },
+        {
+            "id": 15,
+            "name": "model Z14",
+            "year_id": 2,
+            "make_id": 4
+        },
+        {
+            "id": 16,
+            "name": "model X14",
+            "year_id": 2,
+            "make_id": 4
+        }
+    ]
+}
+
+
+

@@ -1,0 +1,84 @@
+.buttonSize{
+    width: 170px;
+    height: 70px;
+    justify-content: center; 
+    
+    
+}
+
+.position{
+    /*margin: 100px;*/
+    justify-content: center;
+    /*padding-top: 100px;*/
+    padding-left: 400px;
+}
+
+.size{
+    width: 500px;
+    height: 60px;
+    font-size:  500px;
+    padding-inline: 65px;
+}
+.buttonPos{
+    padding-left: 120px;
+    justify-content: center;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    
+}
+
+.container{
+    padding-top: 10px;
+      /*padding-right: 500px;*/
+    padding-left: 10px;
+    
+}
+
+.padder{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.upDownPadder{
+    padding-top: 20px;
+    padding-bottom: 1px;
+}
+
+.button{
+    
+    width: 250px;
+    height: 60px;
+    justify-content: center;
+    
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    border-top-width: 5px;
+    padding-top: 10px;
+    margin-top: 10px;
+  } 
+
+  .area{
+      width: 500px;
+      height: 600px;
+  }
+
+  .buttonProp{
+    display:flex;
+    padding-top: 40px;
+    
+    margin-top: 20px;
+    
+
+}
+
+  .redText{
+      color: red;
+  }
+
+  .table thead tr th{
+    font-size: 16px;
+    font-weight: 400;
+}

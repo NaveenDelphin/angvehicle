@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand navbar-dark bg-primary mb-4">
+  <div class="container">
+    <a routerLink="/" class="navbar-brand">Auto Insurance</a>
+    <div>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" *ngIf="(msg1$ | async) as msg1">
+          <a routerLink="/personalDetails" class="nav-link">Personal Details</a>
+        </li>
+        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" *ngIf="(msg1$ | async) as msg1">
+          <a routerLink="/vehicleDetails" class="nav-link">Vehicle Details</a>
+        </li>
+        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" *ngIf="(msg1$ | async) as msg1">
+          <a *ngIf="msg1" routerLink="/driverDetails" class="nav-link">Driver Details</a>
+        </li>
+        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" *ngIf="(msg1$ | async) as msg1">
+          <a routerLink="/driverHistory" class="nav-link">Driver history</a>
+        </li>
+      </ul> 
+    </div>
+  </div>
+</nav>

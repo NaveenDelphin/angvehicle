@@ -1,0 +1,35 @@
+.page-area{
+    background: #f3f3f3;
+    width: 500px;
+    margin:auto;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.container{
+    padding-top: 120px;
+}
+
+
+.registerbtn {
+  /*background-color: #4caf50;*/
+  color: white;
+  padding: 10px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+    opacity: 1;
+  }
+
+.redText{
+  color:red;
+  }
+
+  .full-width{
+    width: 100%;
+}

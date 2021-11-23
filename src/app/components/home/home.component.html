@@ -1,0 +1,66 @@
+<!-- <h1>Welcome</h1>
+<p>This is the Angular Front to Back sandbox application</p>
+<button class="btn btn-secondary" routerLink="/users">Users Section</button>
+<button class="btn btn-dark" routerLink="/posts">Posts Section</button> -->
+
+
+<!--<div class="container justify-content-center">
+    <div class="page-area rounded shadow bg-white justify-content-center py-3">
+
+        <form [formGroup]='myReactiveForm'>
+            <div class="mb-3">
+              <label for="zipCode">Zip Code</label>
+              <input type="text" [ngClass]="{'form-control':true,
+                'is-invalid':!zipCode.valid && zipCode.touched,
+                'is-valid':zipCode.valid}" id="zipCode" formControlName="zipCode" placeholder="zip code" #zipCode1>
+                <small *ngIf="zipCode.errors?.pattern && zipCode.touched" class="form-text custom-invalid-feedback redText">Zip code must be 5 digit number</small>
+                <small *ngIf="zipCode.errors?.required && zipCode.touched" class="form-text custom-invalid-feedback redText">Zip code required</small>
+                <small *ngIf="!submitMessage && !zipCode.touched" class="form-text custom-invalid-feedback errors redText">Zip code required</small>
+              
+            </div>
+            
+            <div class="mb-3">
+              <label for="product">Select Product</label>
+              <select class="form-control" id="product" formControlName="product">
+                  <option value="Auto">Auto</option>
+                  <option value="Fire">Fire</option>
+              </select>
+            </div>
+            <button type="submit" class="registerbtn" (click)="submitHandler(zipCode1.value)">Proceed</button>
+            
+          </form>
+    </div>
+</div>-->
+
+
+<div class="container justify-content-center">
+  <div class="page-area rounded shadow bg-white justify-content-center py-3">
+
+      <form [formGroup]='myReactiveForm'>
+        
+          <div class="mb-3">
+            <mat-form-field class="full-width">
+              <mat-label for="zipCode">Zipcode</mat-label>
+              <input matInput type="text" id="zipCode" formControlName="zipCode">
+              <mat-hint *ngIf="zipCode.errors?.pattern && zipCode.touched" class="redText" #zipCode1>Zip code must be 5 digit number</mat-hint>
+              <mat-hint *ngIf="zipCode.errors?.required && zipCode.touched" class="redText">Zip code is required</mat-hint>
+              <mat-hint *ngIf="!submitMessage && !zipCode.touched" class="redText">Zip code is required</mat-hint>
+            </mat-form-field>
+          </div>
+          
+          <div class="mb-3">
+            <mat-form-field class="full-width">
+              <mat-label for="product">Select Product</mat-label>
+              <mat-select id="product" formControlName="product">
+                <mat-option value="Auto">Auto</mat-option>
+                <mat-option value="Fire">Fire</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <button mat-raised-button type="submit" class="registerbtn" color="primary" (click)="submitHandler(zipCode.value)"><h5>Proceed</h5></button>
+          
+        </form>
+  </div>
+</div>
+
+

@@ -1,0 +1,90 @@
+<div class="container">
+  <div class="page-area justify-content-center py-3">
+      <h2 class="padder">Add Vehicle</h2>
+
+      <form class="center" [formGroup]="myReactiveForm">
+          
+
+          <div class="mb-3 area padder">
+              <label class="upDownPadder" for="year">Select Year</label>
+              <select class="form-control" id="year" formControlName="year">
+                  <option value="2015-2021">2015-2021</option>
+                  <option value="2010-2015">2010-2015</option>
+                  <option value="2005-2010">2005-2010</option>
+                  <option value="2000-2005">2000-2005</option>
+                  <option value="older">Older</option>
+                  
+              </select>
+              <small *ngIf="year.errors?.required && year.touched" class="form-text custom-invalid-feedback redText">*Year required</small>
+              <small *ngIf="!submitMessage && !year.touched" class="form-text custom-invalid-feedback redText">*Year is required</small>
+
+              <label class="upDownPadder" for="make">Select Make</label>
+              <select class="form-control" id="make" formControlName="make">
+                  <option value="BMW">BMW</option>
+                  <option value="honda">Honda</option>
+                  <option value="hundai">Hundai</option>
+                  <option value="bugati">Bugati</option>
+                  <option value="others">Others</option>
+                  
+              </select>
+              <small *ngIf="make.errors?.required && make.touched" class="form-text custom-invalid-feedback redText">*Make required</small>
+              <small *ngIf="!submitMessage && !make.touched" class="form-text custom-invalid-feedback redText">*Make is required</small>
+
+              <label class="upDownPadder" for="model">Select Model</label>
+              <select class="form-control" id="model" formControlName="model">
+                  
+                  <option  value="A">Model A</option>
+                  <option  value="B">Model B</option>
+                  <option  value="C">Model C</option>
+                  
+              </select>
+              <small *ngIf="model.errors?.required && model.touched" class="form-text custom-invalid-feedback redText">*Model required</small>
+              <small *ngIf="!submitMessage && !model.touched" class="form-text custom-invalid-feedback redText">*Model is required</small>
+
+              
+              <label class="upDownPadder" for="engineNo">Engine number</label>
+              <input type="text" class="form-control" id="engineNo" formControlName="engineNo">
+              <small *ngIf="engineNo.errors?.required && engineNo.touched" class="form-text custom-invalid-feedback redText">*Engine number required</small>
+              <small *ngIf="!submitMessage && !engineNo.touched" class="form-text custom-invalid-feedback redText">*Engine number required</small>
+              
+             
+              <label class="upDownPadder" for="vehicleFinance">How is Vehicle financed ?</label>
+                <select class="form-control" id="vehicleFinance" formControlName="vehicleFinance">
+                  
+                  <option  value="Loan">Loan</option>
+                  <option  value="Lease">Lease</option>
+                  <option  value="Own">Own</option>
+
+              </select>
+              <small *ngIf="vehicleFinance.errors?.required && vehicleFinance.touched" class="form-text custom-invalid-feedback redText">*Can't be left empty</small>
+              <small *ngIf="!submitMessage && !vehicleFinance.touched" class="form-text custom-invalid-feedback redText">*Can't be left empty</small>
+                  
+
+              <label class="upDownPadder" for="vehiclePrimaryUse">What is this Vehicle's primary use ?</label>
+              <select class="form-control" id="vehiclePrimaryUse" formControlName="vehiclePrimaryUse">
+                  
+                  <option  value="To work, schoool or pleasure">To work, schoool or pleasure</option>
+                  <option  value="Business">Business</option>
+                  <option  value="Farm">Farm</option>
+                  <option  value="Fedral Govt. employee">Fedral Govt. employee</option>
+                  
+              </select>
+              <small *ngIf="vehiclePrimaryUse.errors?.required && vehiclePrimaryUse.touched" class="form-text custom-invalid-feedback redText">*Can't be left empty</small>
+              <small *ngIf="!submitMessage && !vehiclePrimaryUse.touched" class="form-text custom-invalid-feedback redText">*Can't be left empty</small>
+
+
+              <div class="buttonProp">
+                <a class="padder upDownPadder"></a>
+                <button class="button rounded btn-primary shadow" (click)="onCancel()">Cancel</button>
+          
+                <a class="padder"></a>
+                <button class="button rounded btn-primary shadow" (click)="addVehicle()">Add</button>
+              </div>
+              
+
+           </div>
+
+            
+      </form>
+  </div>
+</div>
